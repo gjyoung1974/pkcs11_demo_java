@@ -18,7 +18,7 @@ public class aes_encrypt {
         p = p.configure(configName);
         Security.addProvider(p);
 
-        char[] pin = { '1', '2', '3', '4' };// This is the HSM "token" PIN/Password
+        char [] pin = {'1', '2', '3', '4', '5', '6'};//token pin
         KeyStore HSM_Based_JavaKeyStore = KeyStore.getInstance("PKCS11", "SunPKCS11-SoftHSMv2"); // crypto-provider is called: SunPKCS11-LunaSA5
         HSM_Based_JavaKeyStore.load(null, pin);//open a session to the HSM
 

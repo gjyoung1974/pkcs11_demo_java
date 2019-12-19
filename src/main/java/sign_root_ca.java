@@ -14,7 +14,7 @@ import java.util.Random;
 class sign_root_ca {
     public static void main(String args[]) throws Exception {
 
-        char[] pin = {'1', '2', '3', '4'};// This is the HSM "token" PIN/Password
+        char [] pin = {'1', '2', '3', '4', '5', '6'};//token pin
 
         /* programatically configure pkcs11 provider */
         String configName = "/usr/local/lib/softhsm/pkcs11.cfg";

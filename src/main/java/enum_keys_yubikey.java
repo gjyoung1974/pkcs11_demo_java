@@ -3,18 +3,18 @@ import java.security.*;
 import java.security.cert.CertificateException;
 import java.util.Enumeration;
 
-public class enumerate_keys {
+public class enum_keys_yubikey {
 
     public static void main(String[] args) throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException, NoSuchProviderException, InvalidKeyException, SignatureException {
 
         /* programatically configure pkcs11 provider */
-        String configName = "/usr/local/lib/softhsm/pkcs11.cfg";
+        String configName = "/etc/yubi-pcs11.cfg";
         Provider p = Security.getProvider("SunPKCS11");
         p = p.configure(configName);
         Security.addProvider(p);
 
         char [] pin = {'1', '2', '3', '4', '5', '6'};//token pin
-        KeyStore HSM_Based_JavaKeyStore = KeyStore.getInstance("PKCS11","SunPKCS11-SoftHSMv2"); //crypto-provider is called: SunPKCS11-SoftHSMv2
+        KeyStore HSM_Based_JavaKeyStore = KeyStore.getInstance("PKCS11","SunPKCS11-yubikey"); //crypto-provider is called: SunPKCS11-SoftHSMv2
         HSM_Based_JavaKeyStore.load(null, pin);
 
         System.out.println("crypto objects contained on HSM: ");
@@ -30,7 +30,5 @@ public class enumerate_keys {
                 continue;
             }
         }
-
     }
-
 }
